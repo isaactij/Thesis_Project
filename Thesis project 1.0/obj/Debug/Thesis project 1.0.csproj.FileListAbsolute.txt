@@ -1,0 +1,7 @@
+D:\Documents\school\college\Graduate\Thesis Project Repository\Thesis_Project\Thesis project 1.0\bin\Debug\Thesis project 1.0.exe.config
+D:\Documents\school\college\Graduate\Thesis Project Repository\Thesis_Project\Thesis project 1.0\bin\Debug\Thesis project 1.0.exe
+D:\Documents\school\college\Graduate\Thesis Project Repository\Thesis_Project\Thesis project 1.0\bin\Debug\Thesis project 1.0.pdb
+D:\Documents\school\college\Graduate\Thesis Project Repository\Thesis_Project\Thesis project 1.0\obj\Debug\Thesis project 1.0.csprojAssemblyReference.cache
+D:\Documents\school\college\Graduate\Thesis Project Repository\Thesis_Project\Thesis project 1.0\obj\Debug\Thesis project 1.0.csproj.CoreCompileInputs.cache
+D:\Documents\school\college\Graduate\Thesis Project Repository\Thesis_Project\Thesis project 1.0\obj\Debug\Thesis project 1.0.exe
+D:\Documents\school\college\Graduate\Thesis Project Repository\Thesis_Project\Thesis project 1.0\obj\Debug\Thesis project 1.0.pdb
