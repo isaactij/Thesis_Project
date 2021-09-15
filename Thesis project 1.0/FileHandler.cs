@@ -8,6 +8,7 @@ using System.Windows.Forms;
 namespace Thesis_project_1._0 {
     class FileHandler {
 
+        // [STAThread]
         public string GetInput() {
             // Get users
             OpenFileDialog openFileDialog = new OpenFileDialog();
