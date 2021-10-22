@@ -39,6 +39,7 @@ namespace Thesis_project_1._0 {
                         case "plus":
                             nextWord = dividedString[wordIndex + 1];
                             if (nextWord == "plus") {
+                                newText = newText.Remove(newText.Length - 1, 1);
                                 newText += "++";
                                 wordIndex++;
                             }
