@@ -8,9 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var providedText = ""
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            GeometryReader{ geometry in
+                TextEditor(text: $providedText)
+                    .frame(height: geometry.size.height)
+                    .padding([.top])
+            }
+            Button("Format Data") {
+//                Call data formatter
+            }
+        }
+        
     }
 }
 
