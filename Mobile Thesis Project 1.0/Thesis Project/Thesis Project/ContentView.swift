@@ -9,19 +9,44 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var providedText = ""
+    @State private var formattedText = ""
+    
+    init() {
+        UITextView.appearance().backgroundColor = .clear
+    }
     
     var body: some View {
         VStack {
-            GeometryReader{ geometry in
-                TextEditor(text: $providedText)
-                    .frame(height: geometry.size.height)
-                    .padding([.top])
-            }
+            inputView
+            outputView
             Button("Format Data") {
-//                Call data formatter
+                formattedText = providedText
             }
         }
-        
+    }
+    
+    var inputView: some View {
+        VStack{
+            Text("Please enter your code here:")
+            TextEditor(text: $providedText)
+                .frame(maxWidth: .infinity)
+        }
+        .background(Color.blue)
+        .cornerRadius(15)
+    }
+    
+    var outputView: some View {
+        VStack{
+            Text("Formatted Text:")
+            ScrollView{
+                Text(formattedText)
+                    .lineLimit(nil)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding([.leading, .bottom], 5)
+            }
+        }
+        .background(Color.green)
+        .cornerRadius(15)
     }
 }
 
