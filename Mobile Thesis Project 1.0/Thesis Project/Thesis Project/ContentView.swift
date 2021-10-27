@@ -12,7 +12,10 @@ struct ContentView: View {
     @State private var formattedText = ""
     
     init() {
+        // Allows background color set on the VStacks with TextEditor fields to fill in the background of the TextEditor fields as well
         UITextView.appearance().backgroundColor = .clear
+        // Sets the cursor in TextEditor fields to be black
+        UITextView.appearance().tintColor = UIColor.black
     }
     
     var body: some View {
