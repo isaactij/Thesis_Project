@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0637BD772728D85300714166 /* TextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0637BD762728D85300714166 /* TextFormatter.swift */; };
 		06C70A6127238D6D00715BB0 /* Thesis_ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C70A6027238D6D00715BB0 /* Thesis_ProjectApp.swift */; };
 		06C70A6327238D6D00715BB0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C70A6227238D6D00715BB0 /* ContentView.swift */; };
 		06C70A6527238D6E00715BB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06C70A6427238D6E00715BB0 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0637BD762728D85300714166 /* TextFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormatter.swift; sourceTree = "<group>"; };
 		06C70A5D27238D6D00715BB0 /* Thesis Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Thesis Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06C70A6027238D6D00715BB0 /* Thesis_ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thesis_ProjectApp.swift; sourceTree = "<group>"; };
 		06C70A6227238D6D00715BB0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				06C70A6427238D6E00715BB0 /* Assets.xcassets */,
 				06C70A6927238D6E00715BB0 /* Info.plist */,
 				06C70A6627238D6E00715BB0 /* Preview Content */,
+				0637BD762728D85300714166 /* TextFormatter.swift */,
 			);
 			path = "Thesis Project";
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0637BD772728D85300714166 /* TextFormatter.swift in Sources */,
 				06C70A6327238D6D00715BB0 /* ContentView.swift in Sources */,
 				06C70A6127238D6D00715BB0 /* Thesis_ProjectApp.swift in Sources */,
 			);

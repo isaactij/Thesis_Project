@@ -23,6 +23,8 @@ struct ContentView: View {
             inputView
             outputView
             Button("Format Data") {
+                let formatController = TextFormatter()
+                formatController.formatText(input: providedText)
                 formattedText = providedText
             }
         }
