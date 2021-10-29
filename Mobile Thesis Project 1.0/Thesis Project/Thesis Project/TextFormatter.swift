@@ -14,8 +14,8 @@ class TextFormatter {
     func formatText(input: String) -> String{
         var output = ""
         let specialWords = ["for", "less", "plus"]
-        let singleDigitNumbers = [["one", "1"]]
-        var lowerCaseInput = input.lowercased()
+        let singleDigitNumbers = ["one": "1"]
+        let lowerCaseInput = input.lowercased()
         let dividedInput = lowerCaseInput.split(separator: " ")
         var forLoopBeingConstructed = false
         var forLoopDefinitionSection = 1
@@ -44,7 +44,27 @@ class TextFormatter {
                 default:
                     break
                 }
+            } else if(singleDigitNumbers.keys.contains(word)) {
+                output += singleDigitNumbers[word]!
+                word = singleDigitNumbers[word]!
+            } else {
+                output += word
             }
+            if(forLoopBeingConstructed) {
+                let number = Int(word)
+                if(number != nil) {
+                    if(forLoopDefinitionSection == 3) {
+                        output += ") {\n"
+                    }
+                    output += ";"
+                    forLoopDefinitionSection += 1
+                    if(forLoopDefinitionSection > 3) {
+                        forLoopBeingConstructed = false
+                        forLoopDefinitionSection = 1
+                    }
+                }
+            }
+            output += " "
             wordIndex += 1
         }
         return output
