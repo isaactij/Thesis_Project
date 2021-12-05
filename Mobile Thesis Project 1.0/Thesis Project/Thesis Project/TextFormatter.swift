@@ -13,13 +13,14 @@ class TextFormatter {
     
     func formatText(input: String) -> String{
         var output = ""
-        let specialWords = ["for", "less", "plus"]
+        let specialWords = ["for", "less", "plus", "underscore", "to", "print"]
         let singleDigitNumbers = ["one": "1"]
         let lowerCaseInput = input.lowercased()
         let dividedInput = lowerCaseInput.split(separator: " ")
         var forLoopBeingConstructed = false
         var forLoopDefinitionSection = 1
         var wordIndex = 0
+        
         while wordIndex < dividedInput.count {
             var word = String(dividedInput[wordIndex])
             var nextWord = ""
@@ -27,7 +28,7 @@ class TextFormatter {
                 switch (word) {
                 case "for":
                     forLoopBeingConstructed = true
-                    output += "for("
+                    output += "for"
                 case "less":
                     nextWord = String(dividedInput[wordIndex + 1])
                     if(nextWord == "than") {
@@ -41,6 +42,15 @@ class TextFormatter {
                         output += "++"
                         wordIndex += 1
                     }
+                case "underscore":
+                    output += "_"
+                case "to":
+                    if(forLoopBeingConstructed) {
+                        output += "..."
+                    }
+                case "print":
+                    output += "print("
+                    
                 default:
                     break
                 }
@@ -53,12 +63,11 @@ class TextFormatter {
             if(forLoopBeingConstructed) {
                 let number = Int(word)
                 if(number != nil) {
-                    if(forLoopDefinitionSection == 3) {
-                        output += ") {\n"
+                    if(forLoopDefinitionSection == 2) {
+                        output += " {\n"
                     }
-                    output += ";"
                     forLoopDefinitionSection += 1
-                    if(forLoopDefinitionSection > 3) {
+                    if(forLoopDefinitionSection > 2) {
                         forLoopBeingConstructed = false
                         forLoopDefinitionSection = 1
                     }

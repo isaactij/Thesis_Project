@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var providedText = ""
+//    @State private var providedText = ""
+    @State private var providedText = "For underscore in 0 to 1 print hello world for escape"
     @State private var formattedText = ""
     
     init() {
