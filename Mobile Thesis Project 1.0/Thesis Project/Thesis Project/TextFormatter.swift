@@ -11,8 +11,12 @@ import Combine
 
 class TextFormatter {
     
+    private var output: String
+    private var addNewLine = false
+    private var tabCount = 0
+    
     func formatText(input: String) -> String{
-        var output = ""
+        output = ""
         let specialWords = ["for", "less", "plus", "underscore", "to", "open", "quote", "close"]
         let singleDigitNumbers = ["one": "1"]
         let lowerCaseInput = input.lowercased()
@@ -22,6 +26,8 @@ class TextFormatter {
         var wordIndex = 0
         var quoteOpened = false
         var doNotAddPostSpace = false
+        var tabCount = 0
+//        var addNewLine = false
         
         while wordIndex < dividedInput.count {
             var word = String(dividedInput[wordIndex])
@@ -59,8 +65,11 @@ class TextFormatter {
                         nextWord = String(dividedInput[wordIndex + 2])
                         if(nextWord == "brace") {
                             output.removeLast()
-                            output += " {\n"
+                            output += " {"
                             wordIndex += 2
+                            doNotAddPostSpace = true
+                            tabCount += 1
+                            addNewLine = true
                         }
                     case "parenthesis":
                         output.removeLast()
@@ -76,8 +85,12 @@ class TextFormatter {
                         nextWord = String(dividedInput[wordIndex + 2])
                         if(nextWord == "brace") {
                             output.removeLast()
-                            output += "\n}\n"
+                            addNewLine = true
+                            newLineHandler()
+                            output += "}"
                             wordIndex += 2
+                            tabCount -= 1
+                            addNewLine = true
                         }
                     case "parenthesis":
                         output.removeLast()
@@ -121,8 +134,30 @@ class TextFormatter {
             } else {
                 doNotAddPostSpace = false
             }
+            newLineHandler()
+//            if addNewLine {
+//                output += "\n"
+//                if tabCount > 0 {
+//                    for _ in 1...tabCount {
+//                        output += "    "
+//                    }
+//                }
+//                addNewLine = false
+//            }
             wordIndex += 1
         }
         return output
+    }
+    
+    func newLineHandler() {
+        if addNewLine {
+            output += "\n"
+            if tabCount > 0 {
+                for _ in 1...tabCount {
+                    output += "    "
+                }
+            }
+            addNewLine = false
+        }
     }
 }
