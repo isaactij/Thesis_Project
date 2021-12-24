@@ -171,7 +171,6 @@ class TextFormatter {
         if addNewLine && !tabOnly {
             indexOfLastNewLine = output.count
             output += "\n"
-            addNewLine = false
         }
         if tabOnly || addNewLine {
             if tabCount > 0 {
@@ -180,5 +179,6 @@ class TextFormatter {
                 }
             }
         }
+        addNewLine = false
     }
 }
