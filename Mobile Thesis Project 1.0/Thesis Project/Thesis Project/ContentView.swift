@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
 //    @State private var providedText = ""
-    @State private var providedText = "For underscore in 0 to 1 open curly brace print open parenthesis quote hello world quote close parenthesis For underscore in 0 to 1 open curly brace print open parenthesis quote hello world quote close parenthesis For underscore in 0 to 1 open curly brace print open parenthesis quote hello world quote close parenthesis For underscore in 0 to 1 open curly brace print open parenthesis quote hello world quote close parenthesis close curly brace close curly brace close curly brace close curly brace if true open curly brace x plus equals two close curly brace"
+//    @State private var providedText = "For underscore in 0 to 1 open curly brace print open parenthesis quote hello world quote close parenthesis For underscore in 0 to 1 open curly brace print open parenthesis quote hello world quote close parenthesis For underscore in 0 to 1 open curly brace print open parenthesis quote hello world quote close parenthesis For underscore in 0 to 1 open curly brace print open parenthesis quote hello world quote close parenthesis close curly brace close curly brace close curly brace close curly brace if true open curly brace x plus equals two close curly brace"
+    @State private var providedText = "let variable equal 0 let boolean equal false let lower case input equal input dot lowercased open parenthesis close parenthesis let divided input equal lower case input dot split open parenthesis spearator colon quote space quote close parenthesis var word Index equal zero while word index less than divided input dot count open curly brace"
     @State private var formattedText = ""
     
     init() {

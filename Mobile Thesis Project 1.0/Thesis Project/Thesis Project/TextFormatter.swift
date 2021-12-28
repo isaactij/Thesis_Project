@@ -17,7 +17,7 @@ class TextFormatter {
     private var indexOfLastNewLine = -1
     
     func formatText(input: String) -> String{
-        let specialWords = ["for", "less", "plus", "underscore", "to", "open", "quote", "close"]
+        let specialWords = ["for", "less", "plus", "underscore", "to", "open", "quote", "close", "equal", "let", "dot", "colon", "space", "var", "while"]
         let singleDigitNumbers = ["one": "1", "two": "2", "three": "3", "four": "4", "five": "5", "six": "6", "seven": "7", "eight": "8", "nine": "9", "zero": "0"]
         let lowerCaseInput = input.lowercased()
         let dividedInput = lowerCaseInput.split(separator: " ")
@@ -32,6 +32,7 @@ class TextFormatter {
             if specialWords.contains(word) {
                 switch (word) {
                 case "for":
+                    removeLastCharacter()
                     forLoopBeingConstructed = true
                     output += "for"
                 case "less":
@@ -58,7 +59,7 @@ class TextFormatter {
                     case "curly":
                         nextWord = String(dividedInput[wordIndex + 2])
                         if(nextWord == "brace") {
-                            output.removeLast()
+                            removeLastCharacter()
                             output += " {"
                             wordIndex += 2
                             doNotAddPostSpace = true
@@ -66,7 +67,7 @@ class TextFormatter {
                             addNewLine = true
                         }
                     case "parenthesis":
-                        output.removeLast()
+                        removeLastCharacter()
                         output += "("
                         wordIndex += 1
                     default:
@@ -78,7 +79,7 @@ class TextFormatter {
                     case "curly":
                         nextWord = String(dividedInput[wordIndex + 2])
                         if(nextWord == "brace") {
-                            output.removeLast()
+                            removeLastCharacter()
                             tabCount -= 1
                             let index = output.index(output.startIndex, offsetBy: indexOfLastNewLine)
                             let newLineSubstring = output[index...]
@@ -95,7 +96,7 @@ class TextFormatter {
                             addNewLine = true
                         }
                     case "parenthesis":
-                        output.removeLast()
+                        removeLastCharacter()
                         output += ")"
                         wordIndex += 1
                     default:
@@ -103,12 +104,32 @@ class TextFormatter {
                     }
                 case "quote":
                     if quoteOpened {
-                        output.removeLast()
+                        removeLastCharacter()
                     } else {
                         doNotAddPostSpace = true
                     }
                     output += "\""
                     quoteOpened = !quoteOpened
+                case "equal":
+                    output += "="
+                case "let":
+                    removeLastCharacter()
+                    output += "\nlet"
+                case "var":
+                    removeLastCharacter()
+                    output += "\nvar"
+                case "dot":
+                    removeLastCharacter()
+                    output += "."
+                    doNotAddPostSpace = true
+                case "colon":
+                    removeLastCharacter()
+                    output += ":"
+                case "space":
+                    output += " "
+                case "while":
+                    removeLastCharacter()
+                    output += "\nwhile"
                 default:
                     break
                 }
@@ -142,5 +163,11 @@ class TextFormatter {
             }
         }
         addNewLine = false
+    }
+    
+    func removeLastCharacter(){
+        if output.count > 0 {
+            output.removeLast()
+        }
     }
 }
