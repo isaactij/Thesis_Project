@@ -18,7 +18,7 @@ class TextFormatter {
     
     func formatText(input: String) -> String{
         let specialWords = ["for", "less", "plus", "underscore", "to", "open", "quote", "close"]
-        let singleDigitNumbers = ["one": "1"]
+        let singleDigitNumbers = ["one": "1", "two": "2", "three": "3", "four": "4", "five": "5", "six": "6", "seven": "7", "eight": "8", "nine": "9", "zero": "0"]
         let lowerCaseInput = input.lowercased()
         let dividedInput = lowerCaseInput.split(separator: " ")
         var forLoopBeingConstructed = false
@@ -29,7 +29,7 @@ class TextFormatter {
         while wordIndex < dividedInput.count {
             var word = String(dividedInput[wordIndex])
             var nextWord = ""
-            if(specialWords.contains(word)) {
+            if specialWords.contains(word) {
                 switch (word) {
                 case "for":
                     forLoopBeingConstructed = true
@@ -42,9 +42,8 @@ class TextFormatter {
                     }
                 case "plus":
                     nextWord = String(dividedInput[wordIndex + 1])
-                    if(nextWord == "plus") {
-                        output.removeLast()
-                        output += "++"
+                    if(nextWord == "equals") {
+                        output += "+="
                         wordIndex += 1
                     }
                 case "underscore":
