@@ -17,7 +17,7 @@ class TextFormatter {
     private var indexOfLastNewLine = -1
     
     func formatText(input: String) -> String{
-        let specialWords = ["for", "less", "plus", "underscore", "to", "open", "quote", "close", "equal", "let", "dot", "colon", "space", "var", "while"]
+        let specialWords = ["for", "less", "plus", "underscore", "to", "open", "quote", "close", "equal", "let", "dot", "colon", "space", "var", "while", "if"]
         let singleDigitNumbers = ["one": "1", "two": "2", "three": "3", "four": "4", "five": "5", "six": "6", "seven": "7", "eight": "8", "nine": "9", "zero": "0"]
         let lowerCaseInput = input.lowercased()
         let dividedInput = lowerCaseInput.split(separator: " ")
@@ -70,6 +70,10 @@ class TextFormatter {
                         removeLastCharacter()
                         output += "("
                         wordIndex += 1
+                    case "bracket":
+                        removeLastCharacter()
+                        output += " ["
+                        wordIndex += 1
                     default:
                         break
                     }
@@ -97,7 +101,10 @@ class TextFormatter {
                         }
                     case "parenthesis":
                         removeLastCharacter()
-                        output += ")"
+                        output += " )"
+                        wordIndex += 1
+                    case "bracket":
+                        output += "]"
                         wordIndex += 1
                     default:
                         break
@@ -114,10 +121,14 @@ class TextFormatter {
                     output += "="
                 case "let":
                     removeLastCharacter()
-                    output += "\nlet"
+                    addNewLine = true
+                    newLineHandler(tabOnly: false)
+                    output += "let"
                 case "var":
                     removeLastCharacter()
-                    output += "\nvar"
+                    addNewLine = true
+                    newLineHandler(tabOnly: false)
+                    output += "var"
                 case "dot":
                     removeLastCharacter()
                     output += "."
@@ -129,7 +140,14 @@ class TextFormatter {
                     output += " "
                 case "while":
                     removeLastCharacter()
-                    output += "\nwhile"
+                    addNewLine = true
+                    newLineHandler(tabOnly: false)
+                    output += "while"
+                case "if":
+                    removeLastCharacter()
+                    addNewLine = true
+                    newLineHandler(tabOnly: false)
+                    output += "if"
                 default:
                     break
                 }
